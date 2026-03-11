@@ -110,7 +110,7 @@ export class ApplicationsService {
           await this.emailService.sendContractEmail(
             (application as any).candidateEmail || 'candidate@example.com',
             application.candidateName,
-            dto.contractUrl || application.contractUrl || '',
+            (dto.contractUrl || application.contractUrl || '') as string,
           );
         } catch {
           // Notification failure is logged inside emailService

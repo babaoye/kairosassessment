@@ -11,7 +11,6 @@ import {
 
 describe('ApplicationsService', () => {
   let service: ApplicationsService;
-  let prisma: PrismaService;
 
   const mockPrismaService = {
     $transaction: jest.fn((cb) => cb(mockPrismaService)),
@@ -42,7 +41,6 @@ describe('ApplicationsService', () => {
     }).compile();
 
     service = module.get<ApplicationsService>(ApplicationsService);
-    prisma = module.get<PrismaService>(PrismaService);
   });
 
   it('should be defined', () => {

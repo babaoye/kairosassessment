@@ -7,8 +7,6 @@ import { Role } from '@prisma/client';
 
 describe('RolesGuard', () => {
   let guard: RolesGuard;
-  let reflector: Reflector;
-  let prisma: PrismaService;
 
   const mockPrismaService = {
     user: {
@@ -30,8 +28,6 @@ describe('RolesGuard', () => {
     }).compile();
 
     guard = module.get<RolesGuard>(RolesGuard);
-    reflector = module.get<Reflector>(Reflector);
-    prisma = module.get<PrismaService>(PrismaService);
   });
 
   it('should be defined', () => {
