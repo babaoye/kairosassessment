@@ -1,0 +1,125 @@
+{
+    "info": {
+        "_postman_id": "87c4d510-4ea7-4e9e-8c6f-7b7e8d9c0a1b",
+        "name": "Kairos Job Application API",
+        "description": "API collection for managing job application states.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "1. Update Status to INTERVIEWING",
+            "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"status\": \"INTERVIEWING\",\n    \"changedByEmail\": \"admin@example.com\",\n    \"metadata\": \"Initial screening passed\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/applications/1/status",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "applications",
+                        "1",
+                        "status"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "2. Update Status to CONTRACTED",
+            "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"status\": \"CONTRACTED\",\n    \"changedByEmail\": \"admin@example.com\",\n    \"contractUrl\": \"https://example.com/contract.pdf\",\n    \"metadata\": \"Offer accepted\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/applications/1/status",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "applications",
+                        "1",
+                        "status"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "3. Update Status to COMPLETED",
+            "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"status\": \"COMPLETED\",\n    \"changedByEmail\": \"admin@example.com\",\n    \"metadata\": \"Work finished successfully\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/applications/1/status",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "applications",
+                        "1",
+                        "status"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "4. Get Application History",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/api/applications/1/history",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "applications",
+                        "1",
+                        "history"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
