@@ -8,7 +8,6 @@ import { PrismaService } from '../prisma/prisma.service';
 
 describe('ApplicationsController', () => {
   let controller: ApplicationsController;
-  let service: ApplicationsService;
 
   const mockApplicationsService = {
     updateStatus: jest.fn(),
@@ -31,7 +30,6 @@ describe('ApplicationsController', () => {
     }).compile();
 
     controller = module.get<ApplicationsController>(ApplicationsController);
-    service = module.get<ApplicationsService>(ApplicationsService);
   });
 
   it('should be defined', () => {

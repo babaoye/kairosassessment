@@ -107,8 +107,9 @@ export class ApplicationsService {
       // Email Notification
       if (dto.status === ApplicationStatus.CONTRACTED) {
         try {
-          const email = (application as any).candidateEmail || 'candidate@example.com';
-          const url = (dto.contractUrl || application.contractUrl || '') as string;
+          const email: string =
+            (application as any).candidateEmail || 'candidate@example.com';
+          const url: string = dto.contractUrl || application.contractUrl || '';
           await this.emailService.sendContractEmail(
             email,
             application.candidateName,

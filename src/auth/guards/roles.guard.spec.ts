@@ -43,14 +43,20 @@ describe('RolesGuard', () => {
   it('should throw error when email missing', async () => {
     mockReflector.getAllAndOverride.mockReturnValue([Role.ADMIN]);
     const context = createMockContext({});
-    await expect(guard.canActivate(context)).rejects.toThrow(ForbiddenException);
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      ForbiddenException,
+    );
   });
 
   it('should throw error when user not found', async () => {
     mockReflector.getAllAndOverride.mockReturnValue([Role.ADMIN]);
     mockPrismaService.user.findUnique.mockResolvedValue(null);
-    const context = createMockContext({ changedByEmail: 'babaoyeoladele@gmail.com' });
-    await expect(guard.canActivate(context)).rejects.toThrow(ForbiddenException);
+    const context = createMockContext({
+      changedByEmail: 'babaoyeoladele@gmail.com',
+    });
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      ForbiddenException,
+    );
   });
 
   it('should allow access when user has required role', async () => {
@@ -64,7 +70,9 @@ describe('RolesGuard', () => {
     mockReflector.getAllAndOverride.mockReturnValue([Role.ADMIN]);
     mockPrismaService.user.findUnique.mockResolvedValue({ role: Role.USER });
     const context = createMockContext({ changedByEmail: 'user@test.com' });
-    await expect(guard.canActivate(context)).rejects.toThrow(ForbiddenException);
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      ForbiddenException,
+    );
   });
 });
 
