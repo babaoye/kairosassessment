@@ -107,10 +107,12 @@ export class ApplicationsService {
       // Email Notification
       if (dto.status === ApplicationStatus.CONTRACTED) {
         try {
+          const email = (application as any).candidateEmail || 'candidate@example.com';
+          const url = (dto.contractUrl || application.contractUrl || '') as string;
           await this.emailService.sendContractEmail(
-            (application as any).candidateEmail || 'candidate@example.com',
+            email,
             application.candidateName,
-            (dto.contractUrl || application.contractUrl || '') as string,
+            url,
           );
         } catch {
           // Notification failure is logged inside emailService

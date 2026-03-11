@@ -47,7 +47,7 @@ describe('ApplicationsController', () => {
     mockApplicationsService.updateStatus.mockResolvedValue(result);
 
     expect(await controller.updateStatus(1, dto)).toBe(result);
-    expect(service.updateStatus).toHaveBeenCalledWith(1, dto);
+    expect(mockApplicationsService.updateStatus).toHaveBeenCalledWith(1, dto);
   });
 
   it('should get application history', async () => {
@@ -55,6 +55,6 @@ describe('ApplicationsController', () => {
     mockApplicationsService.getHistory.mockResolvedValue(history);
 
     expect(await controller.getHistory(1)).toBe(history);
-    expect(service.getHistory).toHaveBeenCalledWith(1);
+    expect(mockApplicationsService.getHistory).toHaveBeenCalledWith(1);
   });
 });
